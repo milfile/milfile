@@ -1,0 +1,5 @@
+<?php ?><center><?mil>404... `!something went wrong!`
+<?milv vbscript=
+
+msgbox("An error has occured, we'll try to keep running.")
+?milv>

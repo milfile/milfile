@@ -1,0 +1,99 @@
+!~ milfile
+
++ How to get started
+
+Headers (1-6) can be created with plus symbols:
+
+```milfile
+
+++ Header2
+```
+
+Result
+
+<milq>
+<q set fakeh2=true>
+++ Header2
+</q>
+</milq>
+
+You can add a title by adding '~!` to the top of the page.
+
+```
+~! milfile
+
++ How to get started
+...
+</milend>
+```
+
+PHP and VBScript are also supported:
+<?php
+echo "FileName + markdown extension : ";
+$file = fopen("php://stdin", "mil");
+try {
+...
+}
+?>
+<!-- there are multiple ways to cancel php -->
+<?/milp>
+```
+
+Cancelling PHP without a closed _)<?php(_ tag.
+
+```milfile
+
+<?php
+
+<milq
+<q set cancelphp=true>
+</q>
+</milq>
+<!-- note: you'd need to set this to false if you wish to use PHP again -->
+```
+or
+```milfile
+<?php
+
+</milend>
+
+<!-- anything after the </milend> tag will be ignored. -->
+```
+or
+```milfile
+<?php
+...
+</milquit>
+<!-- milquit is the same as setting `resetscriptingprocesses` to true -->
+```
+Cancelling PHP with a closed _)<?php(_ tag.
+
+```php
+<?php
+...
+?>
+</milq>
+```
+or
+```milfile
+<?php
+...
+?>
+<?milq>
+```
+or
+```milfile
+<?php
+...
+?>
+</milquit>
+<!-- milquit is the same as setting `resetscriptingprocesses` to true -->
+```
+
+Cancelling mid-PHP:
+
+```php
+
+<?php ?><p><?mil>?mil will cancel mid-php or html (open or closed ?php tag), html will still apply, html will still apply, but will not affect newlines.`</p>
+<!-- html will no longer apply here -->
+```
